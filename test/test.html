@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      a {
+        position: relative;
+        text-decoration: none;
+        color: black;
+        transition: 0.3s ease-in-out;
+        background-color: red;
+      }
+
+      .active {
+        color: blue;
+        background-color: violet;
+      }
+
+      a.active:before {
+        content: "test";
+      }
+
+      .content {
+        width: 65%;
+        height: 160vh;
+        display: flex;
+        margin: auto;
+        padding: 0px 140px;
+        margin-bottom: 150px;
+        background: linear-gradient(180deg, #fde1ff 0%, #e1ffea22 60%);
+      }
+
+      .content .left {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .content .left h1 {
+        padding: 0;
+        margin: 0;
+        color: #171717;
+        font-size: 20rem;
+        font-weight: 600;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 30px;
+        width: 100%;
+        margin-bottom: 100px;
+      }
+
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: aquamarine;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Test</h1>
+    <h1>Test</h1>
+    <a href="#" class="active">Home</a>
+    <a href="#">Contact</a>
+
+    <div class="content">
+      <div class="left">
+        <h1>TEST 1</h1>
+        <h1>TEST 2</h1>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+
+    <h1>TEt</h1>
+  </body>
+</html>

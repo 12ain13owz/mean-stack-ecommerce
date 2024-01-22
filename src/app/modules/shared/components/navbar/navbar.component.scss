@@ -1,0 +1,80 @@
+mat-toolbar {
+  height: auto;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1rem;
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    img {
+      width: 50px;
+      height: 50px;
+    }
+    span {
+      font-size: 2rem;
+    }
+  }
+
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 50px;
+    font-size: 1.25rem;
+
+    li {
+      cursor: pointer;
+
+      a {
+        position: relative;
+        text-decoration: none;
+        color: #bb86fc;
+        transition: color 0.3s ease-in-out;
+      }
+
+      .active {
+        color: #fff;
+      }
+
+      a::before {
+        content: "";
+        position: absolute;
+        bottom: -7px;
+        height: 3px;
+        width: 0%;
+        background-color: rgb(203, 125, 255);
+        transition: width 0.3s ease-in-out;
+      }
+
+      a:hover::before {
+        width: 100%;
+      }
+
+      a.active::before {
+        width: 100%;
+      }
+    }
+  }
+
+  .nav-login-cart {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    .btn-login {
+      font-size: 1.25rem;
+    }
+
+    mat-icon {
+      scale: 1.75;
+    }
+  }
+}

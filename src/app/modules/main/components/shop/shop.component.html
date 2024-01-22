@@ -1,0 +1,64 @@
+<div class="hero">
+  <div class="hero-left">
+    <h2>New Arrivals Only</h2>
+    <div>
+      <div class="hero-hand-icon">
+        <p>new</p>
+        <img src="assets/hand_icon.png" alt="icon" />
+      </div>
+      <p>collections</p>
+      <p>for everyone</p>
+    </div>
+
+    <a class="hero-latest-btn">
+      <div>Latest Collection</div>
+      <img src="assets/arrow.png" alt="icon" />
+    </a>
+  </div>
+
+  <div class="hero-right">
+    <img src="assets/hero_image.png" />
+  </div>
+</div>
+
+<div class="popular">
+  <h1>Popular In Women</h1>
+  <hr />
+  <div class="popular-item">
+    @for (product of populars; track $index) {
+    <app-product [product]="product" [index]="$index"></app-product>
+    }
+  </div>
+</div>
+
+<div class="offers">
+  <div class="offers-left">
+    <h1>Exclusive</h1>
+    <h1>Offers For You</h1>
+    <p>Only on Best Sellers Products</p>
+    <button>Check Now</button>
+  </div>
+
+  <div class="offers-right">
+    <img src="assets/exclusive_image.png" />
+  </div>
+</div>
+
+<div class="new-collections">
+  <h1>New Collections</h1>
+  <hr />
+  <div class="collections">
+    @for (product of newCollectins; track $index) {
+    <app-product [product]="product" [index]="$index"></app-product>
+    }
+  </div>
+</div>
+
+<div class="newsletter">
+  <h1>Get Exclusive Offers On Your Email</h1>
+  <p>Subscribe to our newletter and stay updated</p>
+  <div>
+    <input type="email" placeholder="Your Email id" />
+    <button>Subscribe</button>
+  </div>
+</div>
