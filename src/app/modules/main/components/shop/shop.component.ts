@@ -1,14 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { Product } from '../../../shared/models/product.model';
-import data_product from '../../../../../assets/data';
-import new_collections from '../../../../../assets/new_collections';
+import { ProductService } from '../../../services/product.service';
 
 @Component({
   selector: 'app-shop',
   templateUrl: './shop.component.html',
   styleUrl: './shop.component.scss',
 })
-export class ShopComponent {
-  populars: Product[] = data_product;
-  newCollectins: Product[] = new_collections;
+export class ShopComponent implements OnInit {
+  productService = inject(ProductService);
+
+  popular: Product[];
+  newProduct: Product[];
+
+  ngOnInit(): void {
+    this.popular = this.productService.getPopularProduct();
+    this.newProduct = this.productService.getNewProduct();
+  }
 }

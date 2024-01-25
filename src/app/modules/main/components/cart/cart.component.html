@@ -1,1 +1,65 @@
-<p>cart works!</p>
+<div class="cart-items">
+  <div class="cart-item-format-main">
+    <p>Products</p>
+    <p>Title</p>
+    <p>Price</p>
+    <p>Quantity</p>
+    <p>Total</p>
+    <p>Remove</p>
+  </div>
+
+  <hr />
+
+  @for (cart of carts; track $index) {
+  <div>
+    <div class="cart-items-format cart-item-format-main">
+      <img [src]="cart.image" alt="" class="cart-product-icon" />
+      <p>{{ cart.name }}</p>
+      <p>${{ cart.new_price }}</p>
+      <button class="cart-items-quantity">{{ cart.quantity }}</button>
+      <p>{{ cart.new_price * cart.quantity }}</p>
+      <img
+        class="cart-items-remove-icon"
+        src="assets/cart_cross_icon.png"
+        alt=""
+        (click)="removeCart(cart)"
+      />
+    </div>
+    <hr />
+  </div>
+  }
+
+  <div class="cart-items-down">
+    <div class="cart-items-total">
+      <h1>Cart Total</h1>
+      <div>
+        <div class="cart-items-total-item">
+          <p>Subtatal</p>
+          <p>${{ subTotal }}</p>
+        </div>
+        <hr />
+
+        <div class="cart-items-total-item">
+          <p>Shopping Fee</p>
+          <p>Free</p>
+        </div>
+        <hr />
+
+        <div class="cart-items-total-item">
+          <h3>Total</h3>
+          <h3>${{ total }}</h3>
+        </div>
+      </div>
+
+      <button>Procees to Checkout</button>
+    </div>
+
+    <div class="cart-items-promocode">
+      <p>If you have a promo code, Enter it here</p>
+      <div class="cart-items-promobox">
+        <input type="text" placeholder="promo code" />
+        <button type="button">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -12,6 +12,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { MatBadgeModule } from '@angular/material/badge';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 const MatFormFieldProvider = {
   provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
@@ -30,6 +31,7 @@ const MatFormFieldProvider = {
     MatToolbarModule,
     MatListModule,
     MatBadgeModule,
+    MatCheckboxModule,
   ],
   providers: [MatFormFieldProvider],
 })

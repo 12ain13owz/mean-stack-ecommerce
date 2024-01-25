@@ -5,7 +5,15 @@
       <span>Shopper</span>
     </div>
 
-    <ul class="nav-menu">
+    <img
+      class="nav-dropdown"
+      src="assets/dropdown_icon.png"
+      alt=""
+      (click)="onToggle()"
+      [ngClass]="toggle ? 'open' : ''"
+    />
+
+    <ul class="nav-menu" [ngClass]="toggle ? 'nav-menu-visible' : ''">
       <li><a routerLink="/shop" routerLinkActive="active">Shop</a></li>
       <li><a routerLink="/mens" routerLinkActive="active">Men</a></li>
       <li><a routerLink="/womens" routerLinkActive="active">Women</a></li>
@@ -14,15 +22,15 @@
 
     <div class="nav-login-cart">
       <a routerLink="/auth/signup" mat-raised-button class="btn-login">Login</a>
-      <button mat-icon-button>
+      <a mat-icon-button routerLink="/cart">
         <mat-icon
-          matBadge="15"
+          [matBadge]="count"
           matBadgeSize="small"
           matBadgeColor="warn"
           aria-hidden="false"
           >shopping_cart</mat-icon
-        >
-      </button>
+        ></a
+      >
     </div>
   </div>
 </mat-toolbar>

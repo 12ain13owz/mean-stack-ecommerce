@@ -60,10 +60,24 @@
         height: 100px;
         background-color: aquamarine;
       }
+
+      .hide {
+        visibility: hidden;
+      }
+
+      p {
+        transition: all 0.5s;
+      }
     </style>
   </head>
 
   <body>
+    <button type="button" id="btn">onClick</button>
+    <div style="display: flex">
+      <p id="qwe">Test shop hide</p>
+      <p>|| TEst 2</p>
+    </div>
+
     <h1>Test</h1>
     <h1>Test</h1>
     <a href="#" class="active">Home</a>
@@ -92,3 +106,22 @@
     <h1>TEt</h1>
   </body>
 </html>
+
+<script>
+  const btn = document.getElementById("btn");
+  const qwe = document.getElementById("qwe");
+  let show = false;
+
+  btn.addEventListener("click", () => {
+    show = !show;
+    if (show) {
+      qwe.style.visibility = "hidden";
+      qwe.style.opacity = 0;
+      // qwe.style.display = "none";
+    } else {
+      qwe.style.visibility = "visible";
+      qwe.style.opacity = 1;
+      // qwe.style.display = "block";
+    }
+  });
+</script>

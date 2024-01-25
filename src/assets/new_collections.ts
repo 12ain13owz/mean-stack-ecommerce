@@ -1,4 +1,4 @@
-let new_collections = [
+let new_product = [
   {
     id: 12,
     name: 'Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse',
@@ -57,4 +57,4 @@ let new_collections = [
   },
 ];
 
-export default new_collections;
+export default new_product;

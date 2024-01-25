@@ -9,7 +9,7 @@ import { MenComponent } from './components/men/men.component';
 import { WomenComponent } from './components/women/women.component';
 import { KidsComponent } from './components/kids/kids.component';
 import { CartComponent } from './components/cart/cart.component';
-import { ProductComponent } from './components/product/product.component';
+import { ProductDeteilComponent } from './components/product-deteil/product-deteil.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,7 @@ import { ProductComponent } from './components/product/product.component';
     WomenComponent,
     KidsComponent,
     CartComponent,
-    ProductComponent,
+    ProductDeteilComponent,
   ],
   imports: [MainRoutingModule, CoreModule, SharedModule],
 })

@@ -1,4 +1,4 @@
-let data_product = [
+let popular_product = [
   {
     id: 1,
     name: 'Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse',
@@ -29,4 +29,4 @@ let data_product = [
   },
 ];
 
-export default data_product;
+export default popular_product;

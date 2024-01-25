@@ -6,7 +6,7 @@ import { KidsComponent } from './components/kids/kids.component';
 import { WomenComponent } from './components/women/women.component';
 import { MenComponent } from './components/men/men.component';
 import { CartComponent } from './components/cart/cart.component';
-import { ProductComponent } from './components/product/product.component';
+import { ProductDeteilComponent } from './components/product-deteil/product-deteil.component';
 
 const routes: Routes = [
   {
@@ -18,8 +18,7 @@ const routes: Routes = [
       { path: 'womens', component: WomenComponent },
       { path: 'kids', component: KidsComponent },
       { path: 'cart', component: CartComponent },
-      { path: 'product', component: ProductComponent },
-      { path: 'product/:id', component: ProductComponent },
+      { path: 'product/:id', component: ProductDeteilComponent },
     ],
   },
 ];

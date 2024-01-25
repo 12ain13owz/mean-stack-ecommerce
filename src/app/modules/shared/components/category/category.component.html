@@ -1,0 +1,17 @@
+<div class="shop-category">
+  <img class="shopcategory-banner" [src]="pathImage" alt="" />
+  <div class="shopcategory-indexSort">
+    <p><span>Showing 1-12</span> out of 36 products</p>
+    <div class="shopcategory-sort">
+      Sort by <img src="assets/dropdown_icon.png" alt="" />
+    </div>
+  </div>
+
+  <div class="shopcategory-products">
+    @for (product of products; track $index) {
+    <app-product [product]="product" [index]="$index"></app-product>
+    }
+  </div>
+
+  <div class="shopcategory-loadmore">Explore More</div>
+</div>
