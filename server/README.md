@@ -10,6 +10,7 @@ npm i
 
 ```
 PORT=<PORT>
+DB_PASS=<PASSWORD>
 ```
 
 ## Run
