@@ -1,9 +1,9 @@
 <mat-toolbar color="primary">
   <div class="navbar">
-    <div class="nav-logo">
+    <a routerLink="/shop" class="nav-logo">
       <img src="assets/logo.png" alt="Logo" />
       <span>Shopper</span>
-    </div>
+    </a>
 
     <img
       class="nav-dropdown"
@@ -21,7 +21,14 @@
     </ul>
 
     <div class="nav-login-cart">
-      <a routerLink="/auth/signup" mat-raised-button class="btn-login">Login</a>
+      @if (token) {
+      <button mat-raised-button class="btn-login" (click)="onLogout()">
+        Logout
+      </button>
+      } @else {
+      <a routerLink="/auth/signin" mat-raised-button class="btn-login">Login</a>
+      }
+
       <a mat-icon-button routerLink="/cart">
         <mat-icon
           [matBadge]="count"

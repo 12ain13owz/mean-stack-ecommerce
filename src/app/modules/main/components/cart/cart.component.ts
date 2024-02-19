@@ -3,6 +3,7 @@ import { Product } from '../../../shared/models/product.model';
 import { CartService } from '../../../services/cart.service';
 import { Subscription } from 'rxjs';
 import { Cart } from '../../../shared/models/cart.model';
+import { CartApiService } from '../../../services/cart-api.service';
 
 @Component({
   selector: 'app-cart',
@@ -12,19 +13,27 @@ import { Cart } from '../../../shared/models/cart.model';
 export class CartComponent implements OnInit, OnDestroy {
   private subscription = new Subscription();
   private cartService = inject(CartService);
+  private cartApiService = inject(CartApiService);
   carts: Cart[] = [];
   subTotal: number = 0;
   total: number = 0;
   discount: number = 0;
 
   ngOnInit(): void {
-    this.subscription = this.cartService.cart$.subscribe((carts) => {
-      this.carts = carts;
-      this.subTotal = carts
-        .map((cart) => cart.new_price * cart.quantity)
-        .reduce((sum, cart) => sum + cart);
-      this.total = this.subTotal - this.discount;
-    });
+    this.subscription = this.cartService
+      .getCartListener()
+      .subscribe((carts) => {
+        if (carts.length <= 0) {
+          this.carts = [];
+          return;
+        }
+
+        this.carts = carts;
+        this.subTotal = carts
+          .map((cart) => cart.newPrice * cart.quantity)
+          .reduce((sum, cart) => sum + cart);
+        this.total = this.subTotal - this.discount;
+      });
   }
 
   ngOnDestroy() {
@@ -32,6 +41,6 @@ export class CartComponent implements OnInit, OnDestroy {
   }
 
   removeCart(product: Product) {
-    this.cartService.deleteCart(product.id);
+    this.cartApiService.removeCartApi(product.id).subscribe();
   }
 }

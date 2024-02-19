@@ -1,0 +1,32 @@
+<div class="list-product">
+  <h1>All Product List</h1>
+  <div class="list-product-format-main">
+    <p>Products</p>
+    <p>Title</p>
+    <p>Old Price</p>
+    <p>New Price</p>
+    <p>Category</p>
+    <p>Remove</p>
+  </div>
+  <hr />
+
+  <div class="list-product-all-product">
+    <div class="list-product-format-main list-product-format">
+      @for (product of products; track $index) {
+
+      <img [src]="product.image" class="list-product-icon" />
+      <p>{{ product.name }}</p>
+      <p>{{ product.oldPrice }}</p>
+      <p>{{ product.newPrice }}</p>
+      <p>{{ product.category }}</p>
+      <img
+        src="assets/admin/cross_icon.png"
+        class="list-product-remove"
+        (click)="removeProduct(product.id)"
+      />
+      } @empty {
+      <h1 style="width: 200px">No Product Found</h1>
+      }
+    </div>
+  </div>
+</div>

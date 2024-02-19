@@ -15,9 +15,9 @@
     <div class="cart-items-format cart-item-format-main">
       <img [src]="cart.image" alt="" class="cart-product-icon" />
       <p>{{ cart.name }}</p>
-      <p>${{ cart.new_price }}</p>
+      <p>${{ cart.newPrice }}</p>
       <button class="cart-items-quantity">{{ cart.quantity }}</button>
-      <p>{{ cart.new_price * cart.quantity }}</p>
+      <p>{{ cart.newPrice * cart.quantity }}</p>
       <img
         class="cart-items-remove-icon"
         src="assets/cart_cross_icon.png"

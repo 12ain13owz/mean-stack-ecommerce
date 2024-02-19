@@ -1,19 +1,19 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../shared/models/product.model';
-
-import all_product from '../../../assets/all_product';
-import popular_product from '../../../assets/data';
-import new_product from '../../../assets/new_collections';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductService {
-  private product: Product[] = all_product;
-  private popularProduct: Product[] = popular_product;
-  private newProduct: Product[] = new_product;
+  private product: Product[] = [];
+  private product$ = new BehaviorSubject<Product[]>([]);
 
   constructor() {}
+
+  getProductListener() {
+    return this.product$.asObservable();
+  }
 
   getAllProduct() {
     return [...this.product];
@@ -24,10 +24,28 @@ export class ProductService {
   }
 
   getPopularProduct() {
-    return [...this.popularProduct];
+    return this.product
+      .filter((product) => product.category === 'women')
+      .slice(0, 4);
   }
 
   getNewProduct() {
-    return [...this.newProduct];
+    return this.product.slice(-8);
+  }
+
+  setProducts(products: Product[]) {
+    this.product = products;
+    this.product$.next([...this.product]);
+  }
+
+  addProduct(product: Product) {
+    this.product.push(product);
+    this.product$.next([...this.product]);
+  }
+
+  removeProduct(id: number) {
+    const index = this.product.findIndex((product) => product.id === id);
+    this.product.splice(index, 1);
+    this.product$.next([...this.product]);
   }
 }

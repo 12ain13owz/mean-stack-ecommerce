@@ -3,7 +3,7 @@ export interface Cart {
   name: string;
   image: string;
   category?: string;
-  new_price: number;
-  old_price: number;
+  newPrice: number;
+  oldPrice: number;
   quantity: number;
 }

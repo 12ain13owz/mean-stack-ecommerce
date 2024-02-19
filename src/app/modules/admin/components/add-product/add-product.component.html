@@ -1,0 +1,62 @@
+<div class="add-product">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" #formdirect="ngForm">
+    <div class="add-product-itemfield">
+      <p>Product Title</p>
+      <input type="text" placeholder="Type here" formControlName="name" />
+    </div>
+
+    <div class="add-product-price">
+      <div class="add-product-itemfield">
+        <p>Price</p>
+        <input
+          type="number"
+          placeholder="Type here"
+          formControlName="newPrice"
+        />
+      </div>
+
+      <div class="add-product-itemfield">
+        <p>Offer Price</p>
+        <input
+          type="number"
+          placeholder="Type here"
+          formControlName="oldPrice"
+        />
+      </div>
+    </div>
+
+    <div class="add-product-itemfield">
+      <p>Product Category</p>
+      <select formControlName="category">
+        <option value="women">Women</option>
+        <option value="men">Men</option>
+        <option value="kid">Kid</option>
+      </select>
+    </div>
+
+    <div class="add-product-itemfield">
+      <label [htmlFor]="'file-input'">
+        <img [src]="imagePreview" class="add-product-thumnail-img" />
+      </label>
+      <input
+        type="file"
+        id="file-input"
+        accept="image/png, image/gif, image/jpeg"
+        hidden
+        (change)="onImagePicked($event)"
+      />
+    </div>
+
+    <button type="submit" class="add-product-btn">Add</button>
+  </form>
+</div>
+<div style="margin: 30px">
+  <button
+    type="button"
+    mat-raised-button
+    color="primary"
+    (click)="saveAllProduct()"
+  >
+    Save All Prodauct
+  </button>
+</div>

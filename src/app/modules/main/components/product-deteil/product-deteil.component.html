@@ -33,12 +33,8 @@
     </div>
 
     <div class="product-display-right-prices">
-      <div class="product-display-right-price-old">
-        ${{ product.old_price }}
-      </div>
-      <div class="product-display-right-price-new">
-        ${{ product.new_price }}
-      </div>
+      <div class="product-display-right-price-old">${{ product.oldPrice }}</div>
+      <div class="product-display-right-price-new">${{ product.newPrice }}</div>
     </div>
 
     <div class="product-display-right-description">
@@ -57,7 +53,10 @@
       </div>
     </div>
 
+    @if (token) {
+
     <button type="button" (click)="addToCart(product)">Add To Cart</button>
+    }
     <p class="product-display-right-category">
       <span>Category :</span> Women, T-Shirt, Crop Top
     </p>

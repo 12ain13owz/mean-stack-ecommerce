@@ -4,6 +4,8 @@ import { Subscription } from 'rxjs';
 import { ProductService } from '../../../services/product.service';
 import { Product } from '../../../shared/models/product.model';
 import { CartService } from '../../../services/cart.service';
+import { ProductApiService } from '../../../services/product-api.service';
+import { CartApiService } from '../../../services/cart-api.service';
 
 @Component({
   selector: 'app-product-deteil',
@@ -12,13 +14,14 @@ import { CartService } from '../../../services/cart.service';
 })
 export class ProductDeteilComponent {
   private productService = inject(ProductService);
-  private cartService = inject(CartService);
+  private cartApiService = inject(CartApiService);
   private route = inject(ActivatedRoute);
   private subscription = new Subscription();
   id: number;
   product: Product;
   popularProduct: Product[];
   isProduct: boolean = false;
+  token: string = localStorage.getItem('auth-token');
 
   ngOnInit(): void {
     this.popularProduct = this.productService.getPopularProduct();
@@ -35,6 +38,6 @@ export class ProductDeteilComponent {
   }
 
   addToCart(product: Product) {
-    this.cartService.addToCart(product);
+    this.cartApiService.addCartApi(product.id).subscribe();
   }
 }
