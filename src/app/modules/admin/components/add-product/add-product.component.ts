@@ -82,7 +82,7 @@ export class AddProductComponent implements OnInit {
   }
 
   onInitForm() {
-    this.form = this.form = new FormGroup({
+    this.form = new FormGroup({
       name: new FormControl(null, {
         validators: [Validators.required],
       }),
